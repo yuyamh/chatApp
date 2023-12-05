@@ -1,4 +1,4 @@
-const get_data = () => {
+$(function () {
   $.ajax({
     url: "/result/ajax",
     dataType: "json"
@@ -22,10 +22,10 @@ const get_data = () => {
 
       $("#comment-data").append(html);
 
-      // console.log(data.comments[i].name);
-      // console.log(data.comments[i].comment);
+      console.log(data.comments[i].name);
+      console.log(data.comments[i].comment);
     }
   }).fail(function(){
     alert("コメントの取得に失敗しました。");
   });
-}
+});
