@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,5 +26,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function add(Request $request)
+    {
+        $user = Auth::user();
+        $comment = $request->input('comment');
+        Comment::create([
+            'login_id' => $user->id,
+            'name'     => $user->name,
+            'comment'  => $comment
+        ]);
+
+        return redirect()->route('home');
     }
 }

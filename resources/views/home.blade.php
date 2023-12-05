@@ -20,7 +20,8 @@
     </div>
 </div>
 
-<form method="" action="">
+<form method="POST" action="{{ route('add') }}">
+    @csrf
     <div class="comment-container row justify-content-center">
         <div class="input-group comment-area">
             <textarea class="form-control" placeholder="input massage" aria-label="With textarea" name="comment"></textarea>
