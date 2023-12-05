@@ -83,5 +83,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/comment.js') }}"></script>
 </body>
 </html>

@@ -42,4 +42,11 @@ class HomeController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function getData()
+    {
+        $comments = Comment::latest()->get();
+        $json = ['comments' => $comments];
+        return response()->json($json);
+    }
 }
