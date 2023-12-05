@@ -6,15 +6,17 @@
         <div class="card">
             <div class="card-header">Comment</div>
             <div class="card-body chat-card">
+                @foreach ($comments as $comment)
                 <div class="media">
                     <div class="media-body comment-body">
                         <div class="row">
-                            <span class="comment-body-user">ダミータイトル</span>
-                            <span class="comment-body-time">2020-01-06 12:16:45</span>
+                            <span class="comment-body-user">{{ $comment->name }}</span>
+                            <span class="comment-body-time">{{ $comment->created_at }}</span>
                         </div>
-                        <span class="comment-body-content">ダミーの内容</span>
+                        <span class="comment-body-content">{{ $comment->comment }}</span>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

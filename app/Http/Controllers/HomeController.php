@@ -25,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $comments = Comment::all();
+
+        return view('home', compact('comments'));
     }
 
     public function add(Request $request)
