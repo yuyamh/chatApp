@@ -1,3 +1,8 @@
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 $(function () {
   $.ajax({
     url: "/result/ajax",
@@ -6,7 +11,6 @@ $(function () {
     $("#comment-data")
       .find(".comment-visible")
       .remove();
-    // console.log(data.comments);
     for (let i = 0; i < data.comments.length; i++) {
       const html = `
             <div class="media comment-visible">
@@ -21,9 +25,6 @@ $(function () {
           `;
 
       $("#comment-data").append(html);
-
-      console.log(data.comments[i].name);
-      console.log(data.comments[i].comment);
     }
   }).fail(function(){
     alert("コメントの取得に失敗しました。");
